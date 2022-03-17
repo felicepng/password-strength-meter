@@ -9,6 +9,7 @@ module.exports = {
                 'poppins-regular': ['Poppins-Regular', 'sans-serif'],
                 'poppins-medium': ['Poppins-Medium', 'sans-serif'],
                 'poppins-semibold': ['Poppins-SemiBold', 'sans-serif'],
+                'poppins-bold': ['Poppins-Bold', 'sans-serif'],
             },
         },
     },

@@ -19,9 +19,13 @@ const Home: NextPage = () => {
   const [zxcvbnResult, setZxcvbnResult] = useState<IZXCVBNResult | null>(null);
 
   useEffect(() => {
-    const result = zxcvbn(password, [firstName, lastName, dateOfBirth]);
-    setZxcvbnResult(result);
-    console.log(result);
+    if (password) {
+      const result = zxcvbn(password, [firstName, lastName, dateOfBirth]);
+      setZxcvbnResult(result);
+      console.log(result);
+    } else {
+      setZxcvbnResult(null);
+    }
   }, [firstName, lastName, dateOfBirth, password]);
 
   return (
@@ -70,26 +74,35 @@ const Home: NextPage = () => {
           <hr className="opacity-40 w-full" />
 
           <div className="flex flex-col w-full">
+            <div className="text-center mb-4">
+              Score: {zxcvbnResult?.score || "-"}
+            </div>
+            <div className="text-center mb-7">
+              Suggestion:{' '}
+              {zxcvbnResult ?
+                zxcvbnResult.feedback.suggestions.map((item: string) => item + ". ") :
+                "-"
+              }
+
+            </div>
             <div className="flex w-full space-x-3">
-              <span className="text-center">
-                Suggestion: {zxcvbnResult?.feedback.suggestions}
-              </span>
               {zxcvbnResult?.sequence.map((sequence, index) => {
                 return (
                   <div
                     key={index}
-                    className="grid grid-cols-2 border text-sm gap-x-2"
+                    className="px-3 py-2 bg-gray-800 opacity-80 rounded-md text-sm gap-x-2"
                   >
-                    <span className="font-poppins-medium">Pattern</span>
-                    <span>{sequence.pattern}</span>
-                    {sequence.l33t && (
-                      <Fragment>
-                        <span className="font-poppins-medium">
-                          L33t characters
-                        </span>
-                        <span>{sequence.sub_display as string}</span>
-                      </Fragment>
-                    )}
+                    <div className="font-poppins-medium">Pattern:
+                      <span className="ml-2">{sequence.pattern}</span>
+                      {sequence.l33t && (
+                        <Fragment>
+                          <span className="font-poppins-medium">
+                            L33t characters
+                          </span>
+                          <span>{sequence.sub_display as string}</span>
+                        </Fragment>
+                      )}
+                    </div>
                   </div>
                 );
               })}

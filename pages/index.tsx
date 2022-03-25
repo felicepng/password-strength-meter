@@ -77,7 +77,7 @@ const Home: NextPage = () => {
             <hr className="opacity-40" />
 
             <div className="flex flex-col w-full">
-              <div className="flex w-full flex-wrap gap-3 mt-3 mb-6">
+              <div className="flex w-full flex-wrap gap-4 mt-3 mb-6">
                 {zxcvbnResult?.sequence.map((sequence, index) => {
                   return (
                     <SequenceItem key={index} sequence={sequence} />

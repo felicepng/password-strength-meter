@@ -26,12 +26,12 @@ const Home: NextPage = () => {
   return (
     <div className="relative bg-primary text-white w-screen h-screen overflow-x-hidden overflow-y-hidden font-poppins-regular">
       <img src="/design.png" className="top-0 right-0 absolute w-1/2 md:w-2/5 opacity-60" />
-      <div className="flex flex-col py-16 px-14 md:px-24 w-screen h-screen overflow-x-scroll overflow-y-scroll z-10">
-        <div className="text-3xl md:text-4xl font-poppins-semibold mt-1">Password-Strength Meter</div>
-        <div className="text-xl text-secondary mt-1">CS440 G2T8</div>
+      <div className="flex flex-col py-12 px-10 md:px-24 w-screen h-screen overflow-x-scroll overflow-y-scroll z-10">
+        <div className="text-2xl md:text-4xl font-poppins-semibold mt-1">Password-Strength Meter</div>
+        <div className="text-base md:text-xl text-secondary mt-1">CS440 G2T8</div>
 
-        <div className="mt-10 md:mt-14 grid lg:grid-cols-3 gap-x-20">
-          <div className="flex flex-col gap-y-5 md:gap-y-6 lg:col-span-2 space-y-6 w-full">
+        <div className="mt-8 md:mt-14 grid lg:grid-cols-3 gap-x-20">
+          <div className="flex flex-col gap-y-3 md:gap-y-6 lg:col-span-2 space-y-6 w-full">
             <div className="flex flex-col gap-y-4 md:gap-y-6">
               <div className="flex justify-between w-full gap-x-4 md:gap-x-6">
                 <input
@@ -71,7 +71,7 @@ const Home: NextPage = () => {
             <hr className={`opacity-40 ${!password && "hidden"}`} />
 
             <div className="flex flex-col w-full">
-              <div className="flex w-full flex-wrap gap-4 mb-6">
+              <div className="flex w-full flex-wrap gap-3 md:gap-4 mb-6">
                 {zxcvbnResult?.sequence.map((sequence, index) => {
                   return (
                     <SequenceItem key={index} sequence={sequence} />

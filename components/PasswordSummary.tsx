@@ -1,5 +1,6 @@
 import PasswordMeter from './PasswordMeter';
 import _ from 'lodash';
+import EntropyCalculation from './EntropyCalculation';
 
 interface Props {
   password: string
@@ -17,13 +18,11 @@ const PasswordSummary = (props: Props) => {
     <div className="text-white font-poppins-semibold opacity-80 bg-gray-800 py-6 px-8 rounded-lg flex flex-col gap-y-6">
       <div>
         Password Entropy:{' '}
-        <span className="ml-2 text-gray-300 font-poppins-regular">
-          NA
-        </span>
+        <EntropyCalculation password={password} />
       </div>
       <div>
         Score:{' '}
-        <span className="ml-2 text-gray-300 font-poppins-regular">
+        <span className="ml-1 text-gray-300 font-poppins-regular">
           {
             password ?
               <PasswordMeter score={score} />
@@ -34,25 +33,25 @@ const PasswordSummary = (props: Props) => {
       </div>
       <div>
         Guesses:{' '}
-        <span className="ml-2 text-gray-300 font-poppins-regular">
+        <span className="ml-1 text-gray-300 font-poppins-regular">
           {guesses}
         </span>
       </div>
       <div>
         Time to crack (10,000 guesses per second):{' '}
-        <span className="ml-2 text-gray-300 font-poppins-regular">
+        <span className="ml-1 text-gray-300 font-poppins-regular">
           {_.capitalize(crack_times)}
         </span>
       </div>
       <div>
         Suggestions:{' '}
-        <span className="ml-2 text-gray-300 font-poppins-regular">
+        <span className="ml-1 text-gray-300 font-poppins-regular">
           {suggestions.map((item: string) => item + " ")}
         </span>
       </div>
       <div>
         Warning:{' '}
-        <span className="ml-2 text-gray-300 font-poppins-regular">
+        <span className="ml-1 text-gray-300 font-poppins-regular">
           {warning || "-"}
         </span>
       </div>

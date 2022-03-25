@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import zxcvbn, { IZXCVBNResult } from 'zxcvbn-typescript';
 import axios from 'axios';
 import hmacSHA256 from 'crypto-js/sha256';
@@ -59,9 +59,9 @@ const Home: NextPage = () => {
               value={dateOfBirth}
               onChange={(e) => setDateOfBirth(e.target.value)}
             />
-            <div className="w-full gap-x-6 flex items-center justify-between">
+            <div className="border-2 border-secondary rounded-lg w-full gap-x-6 flex items-center justify-between">
               <input
-                className="w-full focus:outline-none placeholder-gray-500 bg-primary px-5 py-3 border-2 border-secondary rounded-lg"
+                className="w-full focus:outline-none rounded-lg placeholder-gray-500 bg-primary px-5 py-3 "
                 placeholder="Password"
                 type={isPasswordHidden ? "password" : "text"}
                 value={password}
@@ -69,8 +69,8 @@ const Home: NextPage = () => {
               />
               {
                 isPasswordHidden ?
-                  <AiOutlineEyeInvisible className="text-secondary w-6 h-6 cursor-pointer" onClick={() => setIsPasswordHidden(false)} /> :
-                  <AiOutlineEye className="text-secondary w-6 h-6 cursor-pointer" onClick={() => setIsPasswordHidden(true)} />
+                  <AiOutlineEyeInvisible className="text-secondary w-6 h-6 cursor-pointer mr-4" onClick={() => setIsPasswordHidden(false)} /> :
+                  <AiOutlineEye className="text-secondary w-6 h-6 cursor-pointer mr-4" onClick={() => setIsPasswordHidden(true)} />
               }
             </div>
 

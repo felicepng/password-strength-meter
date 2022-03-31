@@ -19,17 +19,6 @@ const PasswordSummary = (props: Props) => {
       <div className="text-white font-poppins-semibold opacity-80 bg-gray-800 py-6 px-8 rounded-lg flex flex-col gap-y-4">
         <div className="font-poppins-bold text-secondary">Password Entropy</div>
         <EntropyCalculation password={password} />
-        <div>
-          Score:{' '}
-          <span className="ml-1 text-gray-300 font-poppins-regular">
-            {
-              password ?
-                <PasswordMeter score={score} />
-                :
-                "-"
-            }
-          </span>
-        </div>
       </div>
       <div className="text-white font-poppins-semibold opacity-80 bg-gray-800 py-6 px-8 rounded-lg flex flex-col gap-y-4">
         <div className="font-poppins-bold text-secondary">Character Matching</div>
@@ -58,8 +47,8 @@ const PasswordSummary = (props: Props) => {
           </span>
         </div>
         <div>
-          Score:{' '}
-          <span className="ml-1 text-gray-300 font-poppins-regular">
+          Password Strength:
+          <span className="text-gray-300 font-poppins-regular">
             {
               password ?
                 <PasswordMeter score={score} />

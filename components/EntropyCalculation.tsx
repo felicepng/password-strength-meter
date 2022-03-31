@@ -1,3 +1,5 @@
+import PasswordMeter from './PasswordMeter';
+
 interface Props {
   password: string
 }
@@ -33,11 +35,32 @@ const calculateCharacterPools = (password: string) => {
   return sum;
 }
 
-const calculateEntropy = (password: string) => {
+const calculateGuesses = (password: string) => {
   const len = password.length;
   const characterPools = calculateCharacterPools(password);
 
-  return Math.log(Math.pow(characterPools, len)) / Math.log(2);
+  return Math.pow(characterPools, len);
+}
+
+const calculateEntropy = (password: string) => {
+  const guesses = calculateGuesses(password);
+
+  return Math.log(guesses) / Math.log(2);
+}
+
+const calculateScore = (password: string) => {
+  const guesses = calculateGuesses(password);
+
+  if (guesses < Math.pow(10, 3)) {
+    return 0;
+  } else if (guesses < Math.pow(10, 6)) {
+    return 1;
+  } else if (guesses < Math.pow(10, 8)) {
+    return 2;
+  } else if (guesses < Math.pow(10, 10)) {
+    return 3;
+  }
+  return 4;
 }
 
 const EntropyCalculation = (props: Props) => {
@@ -47,13 +70,24 @@ const EntropyCalculation = (props: Props) => {
     <div className="flex flex-col gap-y-4">
       <div>
         Guesses:{' '}
-        <span className="ml-2 text-gray-300 font-poppins-regular">
-          {calculateCharacterPools(password)}<sup>{password.length}</sup>
+        <span className="ml-1 text-gray-300 font-poppins-regular">
+          {calculateCharacterPools(password)}<sup>{password.length}</sup> = {calculateGuesses(password)}
         </span>
       </div>
       <div>
         <span className="text-gray-300 font-poppins-regular">
           E = log<sub>2</sub>{calculateCharacterPools(password)}<sup>{password.length}</sup> = {calculateEntropy(password)}
+        </span>
+      </div>
+      <div>
+        Password Strength:
+        <span className="text-gray-300 font-poppins-regular">
+          {
+            password ?
+              <PasswordMeter score={calculateScore(password)} />
+              :
+              "-"
+          }
         </span>
       </div>
     </div>

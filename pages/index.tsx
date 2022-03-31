@@ -26,7 +26,7 @@ const Home: NextPage = () => {
   return (
     <div className="relative bg-primary text-white w-screen h-screen overflow-x-hidden overflow-y-hidden font-poppins-regular">
       <img src="/design.png" className="top-0 right-0 absolute w-1/2 md:w-2/5 opacity-60" />
-      <div className="flex flex-col py-12 px-10 md:px-24 w-screen h-screen overflow-x-scroll overflow-y-scroll z-10">
+      <div className="flex flex-col py-8 md:py-12 px-8 md:px-24 w-screen h-screen overflow-x-scroll overflow-y-scroll z-10">
         <div className="text-2xl md:text-4xl font-poppins-semibold mt-1">Password-Strength Meter</div>
         <div className="text-base md:text-xl text-secondary mt-1">CS440 G2T8</div>
 

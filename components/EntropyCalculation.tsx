@@ -44,10 +44,19 @@ const EntropyCalculation = (props: Props) => {
   const { password } = props;
 
   return (
-    <span className="ml-2 text-gray-300 font-poppins-regular">
-      log<sub>2</sub>{calculateCharacterPools(password)}<sup>{password.length}</sup>
-      <div>= {calculateEntropy(password)}</div>
-    </span>
+    <div className="flex flex-col gap-y-4">
+      <div>
+        Guesses:{' '}
+        <span className="ml-2 text-gray-300 font-poppins-regular">
+          {calculateCharacterPools(password)}<sup>{password.length}</sup>
+        </span>
+      </div>
+      <div>
+        <span className="text-gray-300 font-poppins-regular">
+          E = log<sub>2</sub>{calculateCharacterPools(password)}<sup>{password.length}</sup> = {calculateEntropy(password)}
+        </span>
+      </div>
+    </div>
   )
 }
 

@@ -30,9 +30,9 @@ const Home: NextPage = () => {
   }, [firstName, lastName, dateOfBirth, password]);
 
   return (
-    <div className="relative bg-primary text-white w-screen h-screen scrollbar-hide overflow-x-hidden overflow-y-hidden font-poppins-regular">
-      <img src="/design.png" className="top-0 right-0 absolute w-1/2 md:w-2/5 opacity-60" />
-      <div className="text-base flex flex-col py-8 md:py-12 px-8 md:px-24 w-screen h-screen scrollbar-hide overflow-x-scroll overflow-y-scroll z-10">
+    <div className="bg-primary text-white w-screen h-screen scrollbar-hide overflow-x-hidden overflow-y-hidden font-poppins-regular">
+      <div className="relative text-base flex flex-col py-8 md:py-12 px-8 md:px-24 w-screen h-screen scrollbar-hide overflow-x-scroll overflow-y-scroll z-10">
+
         <Transition appear show={isModalVisible} as={Fragment}>
           <Dialog
             as="div"
@@ -144,9 +144,9 @@ const Home: NextPage = () => {
                         </Disclosure.Button>
                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
                           <div>Search for common keypad patterns in precomputed graph, e.g. qwerty keyboard</div>
-                          <div className="flex items-center">
+                          <div className="flex items-center flex-wrap">
                             <div>Number of guesses =</div>
-                            <img src="/formula.png" className="h-20" />
+                            <img src="/formula.png" className="h-16 md:h-20" />
                           </div>
                           <div>L: Length of pattern</div>
                           <div>D: Average number of neighbours per key, e.g. ‘s’ has 4 neighbours on qwerty</div>
@@ -220,7 +220,7 @@ const Home: NextPage = () => {
                               } w-5 h-5 text-secondary`}
                           />
                         </Disclosure.Button>
-                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
+                        <Disclosure.Panel className="px-4 pt-4 pb-0 text-sm md:text-base text-gray-200">
                           <div>0: Too guessable, risky password (guesses: &lt; 10<sup>3</sup>)</div>
                           <div>1: Very guessable, protection from throttled online attacks. (guesses &lt; 10<sup>6</sup>)</div>
                           <div>2: Somewhat guessable, protection from unthrottled online attacks. (guesses &lt; 10<sup>8</sup>)</div>
@@ -305,6 +305,7 @@ const Home: NextPage = () => {
             />
           }
         </div>
+        <img src="/design.png" className="-z-10 top-0 right-0 absolute w-1/2 md:w-2/5 opacity-60" />
       </div>
     </div>
   );

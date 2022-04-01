@@ -67,13 +67,13 @@ const Home: NextPage = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <div className="my-10 md:my-20 bg-gray-800 inline-block w-11/12 md:w-2/3 h-2/3 py-6 px-8 overflow-hidden text-left align-middle transition-all transform rounded-lg">
+                <div className="font-poppins-regular my-10 md:my-20 bg-gray-800 inline-block w-11/12 md:w-2/3 h-2/3 py-6 px-8 overflow-hidden text-left align-middle transition-all transform rounded-lg">
                   <div className="flex justify-between items-center">
                     <Dialog.Title
                       as="h3"
                       className="text-xl font-poppins-semibold leading-6 text-white"
                     >
-                      Information
+                      Application Info
                     </Dialog.Title>
                     <IoClose className="text-white hover:text-secondary cursor-pointer h-6 w-6" onClick={() => setIsModalVisible(false)} />
                   </div>
@@ -95,7 +95,7 @@ const Home: NextPage = () => {
                               } w-5 h-5 text-secondary`}
                           />
                         </Disclosure.Button>
-                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-white">
+                        <Disclosure.Panel className="px-4 pt-4 pb-0 text-base text-gray-200">
                           <div>Password entropy is calculated using the formula:{' '}
                             <span className="ml-1">E = log<sub>2</sub>R<sup>L</sup> = L * log<sub>2</sub>R</span>
                           </div>
@@ -221,7 +221,7 @@ const Home: NextPage = () => {
         <div className="flex gap-x-4 md:gap-x-6 items-center mt-1">
           <div className="text-2xl md:text-4xl font-poppins-semibold">Password-Strength Meter</div>
           <Tooltip title="Info" placement="right">
-            <FiInfo className="cursor-pointer hover:text-secondary h-5 w-5 md:h-6 md:w-6" onClick={() => setIsModalVisible(true)} />
+            <FiInfo className="cursor-pointer hover:text-secondary h-6 w-6" onClick={() => setIsModalVisible(true)} />
           </Tooltip>
         </div>
         <div className="text-base md:text-xl text-secondary mt-1">CS440 G2T8</div>

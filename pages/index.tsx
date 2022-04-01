@@ -84,11 +84,12 @@ const Home: NextPage = () => {
                     </p>
                   </div>
 
+                  <div className="text-white font-poppins-semibold mb-2">PASSWORD ENTROPY</div>
                   <Disclosure>
                     {({ open }) => (
-                      <div className="mb-4">
+                      <div className="mb-7">
                         <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-poppins-medium text-left text-secondary border-2 border-secondary rounded-lg hover:border-tertiary focus:outline-none">
-                          <span>Password Entropy</span>
+                          <span>Scoring</span>
                           <HiChevronDown
                             className={`${open ? 'transform rotate-180' : ''
                               } w-5 h-5 text-secondary`}
@@ -105,11 +106,13 @@ const Home: NextPage = () => {
                       </div>
                     )}
                   </Disclosure>
+
+                  <div className="text-white font-poppins-semibold mb-2">CHARACTER MATCHING</div>
                   <Disclosure>
                     {({ open }) => (
-                      <div className="mb-4">
+                      <div className="mb-3">
                         <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-poppins-medium text-left text-secondary border-2 border-secondary rounded-lg hover:border-tertiary focus:outline-none">
-                          <span>Character Matching: Dictionary Match</span>
+                          <span>Dictionary Match</span>
                           <HiChevronDown
                             className={`${open ? 'transform rotate-180' : ''
                               } w-5 h-5 text-secondary`}
@@ -131,9 +134,9 @@ const Home: NextPage = () => {
                   </Disclosure>
                   <Disclosure>
                     {({ open }) => (
-                      <div className="mb-4">
+                      <div className="mb-3">
                         <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-poppins-medium text-left text-secondary border-2 border-secondary rounded-lg hover:border-tertiary focus:outline-none">
-                          <span>Character Matching: Spatial Match</span>
+                          <span>Spatial Match</span>
                           <HiChevronDown
                             className={`${open ? 'transform rotate-180' : ''
                               } w-5 h-5 text-secondary`}
@@ -147,9 +150,9 @@ const Home: NextPage = () => {
                   </Disclosure>
                   <Disclosure>
                     {({ open }) => (
-                      <div className="mb-4">
+                      <div className="mb-3">
                         <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-poppins-medium text-left text-secondary border-2 border-secondary rounded-lg hover:border-tertiary focus:outline-none">
-                          <span>Character Matching: Repeat Match</span>
+                          <span>Repeat Match</span>
                           <HiChevronDown
                             className={`${open ? 'transform rotate-180' : ''
                               } w-5 h-5 text-secondary`}
@@ -163,9 +166,9 @@ const Home: NextPage = () => {
                   </Disclosure>
                   <Disclosure>
                     {({ open }) => (
-                      <div className="mb-4">
+                      <div className="mb-3">
                         <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-poppins-medium text-left text-secondary border-2 border-secondary rounded-lg hover:border-tertiary focus:outline-none">
-                          <span>Character Matching: Sequence Match</span>
+                          <span>Sequence Match</span>
                           <HiChevronDown
                             className={`${open ? 'transform rotate-180' : ''
                               } w-5 h-5 text-secondary`}
@@ -179,9 +182,9 @@ const Home: NextPage = () => {
                   </Disclosure>
                   <Disclosure>
                     {({ open }) => (
-                      <div className="mb-4">
+                      <div className="mb-3">
                         <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-poppins-medium text-left text-secondary border-2 border-secondary rounded-lg hover:border-tertiary focus:outline-none">
-                          <span>Character Matching: Date Match</span>
+                          <span>Date Match</span>
                           <HiChevronDown
                             className={`${open ? 'transform rotate-180' : ''
                               } w-5 h-5 text-secondary`}
@@ -195,9 +198,9 @@ const Home: NextPage = () => {
                   </Disclosure>
                   <Disclosure>
                     {({ open }) => (
-                      <div className="mb-4">
+                      <div className="mb-1">
                         <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-sm font-poppins-medium text-left text-secondary border-2 border-secondary rounded-lg hover:border-tertiary focus:outline-none">
-                          <span>Character Matching: Scoring</span>
+                          <span>Scoring</span>
                           <HiChevronDown
                             className={`${open ? 'transform rotate-180' : ''
                               } w-5 h-5 text-secondary`}

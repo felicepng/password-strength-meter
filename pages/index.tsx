@@ -221,11 +221,11 @@ const Home: NextPage = () => {
                           />
                         </Disclosure.Button>
                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
-                          <div>{`0: Too guessable, risky password. (guesses < 10^3)`}</div>
-                          <div>{`1: Very guessable, protection from throttled online attacks. (guesses < 10^6)`}</div>
-                          <div>{`2: Somewhat guessable, protection from unthrottled online attacks. (guesses < 10^8)`}</div>
-                          <div>{`3: Safely unguessable, moderate protection from offline slow-hash scenario. (guesses < 10^10)`}</div>
-                          <div>{`4: Very unguessable, strong protection from offline slow-hash scenario. (guesses >= 10^10)`}</div>
+                          <div>0: Too guessabled, risky password (guesses: &lt; 10^3)</div>
+                          <div>1: Very guessable, protection from throttled online attacks. (guesses &lt; 10^6)</div>
+                          <div>2: Somewhat guessable, protection from unthrottled online attacks. (guesses &lt; 10^8)</div>
+                          <div>3: Safely unguessable, moderate protection from offline slow-hash scenario. (guesses &lt; 10^10)</div>
+                          <div>4: Very unguessable, strong protection from offline slow-hash scenario. (guesses &gt;= 10^10)</div>
                         </Disclosure.Panel>
                       </div>
                     )}

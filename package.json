@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.5.0",
     "@types/lodash": "^4.14.180",
+    "antd": "^4.19.3",
     "autoprefixer": "^10.4.4",
     "lodash": "^4.17.21",
     "next": "12.1.0",

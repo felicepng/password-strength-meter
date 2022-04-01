@@ -71,7 +71,7 @@ const Home: NextPage = () => {
                   <div className="flex justify-between items-center">
                     <Dialog.Title
                       as="h3"
-                      className="text-xl font-poppins-semibold leading-6 text-white"
+                      className="text-lg md:text-xl font-poppins-semibold leading-6 text-white"
                     >
                       Application Info
                     </Dialog.Title>
@@ -79,7 +79,7 @@ const Home: NextPage = () => {
                   </div>
 
                   <div className="mt-4 mb-6">
-                    <p className="text-base text-white">
+                    <p className="text-sm md:text-base text-white">
                       Expand specific techniques to learn more about their respective calculations.
                     </p>
                   </div>
@@ -95,7 +95,7 @@ const Home: NextPage = () => {
                               } w-5 h-5 text-secondary`}
                           />
                         </Disclosure.Button>
-                        <Disclosure.Panel className="px-4 pt-4 pb-0 text-base text-gray-200">
+                        <Disclosure.Panel className="px-4 pt-4 pb-0 text-sm md:text-base text-gray-200">
                           <div>Password entropy is calculated using the formula:{' '}
                             <span className="ml-1">E = log<sub>2</sub>R<sup>L</sup> = L * log<sub>2</sub>R</span>
                           </div>
@@ -118,7 +118,7 @@ const Home: NextPage = () => {
                               } w-5 h-5 text-secondary`}
                           />
                         </Disclosure.Button>
-                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-white">
+                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
                           <div>- Compare substring against ranked list of common passwords, names, words. Lists are ranked by degree of commonality.</div>
                           <div>- Number of guesses= Rank of matched word</div>
                           <div>- Inverse matching: Doubles number of guesses of inverted set, i.e. N(’drowssap’) = 2 * N(’password’)</div>
@@ -142,8 +142,8 @@ const Home: NextPage = () => {
                               } w-5 h-5 text-secondary`}
                           />
                         </Disclosure.Button>
-                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-white">
-                          <div>- NA</div>
+                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
+                          <div>- Search for common keypad patterns in precomputed graph, e.g. qwerty keyboard</div>
                         </Disclosure.Panel>
                       </div>
                     )}
@@ -158,8 +158,11 @@ const Home: NextPage = () => {
                               } w-5 h-5 text-secondary`}
                           />
                         </Disclosure.Button>
-                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-white">
-                          <div>- NA</div>
+                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
+                          <div>- Identify repeated characters or strings and reduce to base form. Take total as (num guesses of base) * (num repeats) + 1</div>
+                          <div>asdfasdfasdf → asdf</div>
+                          <div>Num guesses asdf = n</div>
+                          <div>Num guesses asdfasdfasdf = 3*n + 1</div>
                         </Disclosure.Panel>
                       </div>
                     )}
@@ -174,8 +177,11 @@ const Home: NextPage = () => {
                               } w-5 h-5 text-secondary`}
                           />
                         </Disclosure.Button>
-                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-white">
-                          <div>- NA</div>
+                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
+                          <div>- Detects sequences based on the delta or difference between character ASCII values.</div>
+                          <div>- Number of guesses is scored using the product of the absolute difference, d, the starting point, s, of the sequence and n, the length. For obvious starting points like ‘a’, ‘z’ or 1, s = 4 but for other less obvious ones, s = 10 for digits and s = 26 for alphabetical characters. </div>
+                          <div>- Num guesses = s*d*n</div>
+                          <div>- e.g. abcd → s*d*n = (4)(1)(4) = 16</div>
                         </Disclosure.Panel>
                       </div>
                     )}
@@ -190,8 +196,8 @@ const Home: NextPage = () => {
                               } w-5 h-5 text-secondary`}
                           />
                         </Disclosure.Button>
-                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-white">
-                          <div>- NA</div>
+                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
+                          <div>- We assume guesses start at 2016 and guess progressively earlier or later dates, yielding a ballpark of 365 * |2016 - year|</div>
                         </Disclosure.Panel>
                       </div>
                     )}
@@ -206,8 +212,12 @@ const Home: NextPage = () => {
                               } w-5 h-5 text-secondary`}
                           />
                         </Disclosure.Button>
-                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-white">
-                          <div>- NA</div>
+                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
+                          <div>{`- 0# too guessable: risky password. (guesses < 10^3)`}</div>
+                          <div>{`- 1# very guessable: protection from throttled online attacks. (guesses < 10^6)`}</div>
+                          <div>{`- 2# somewhat guessable: protection from unthrottled online attacks. (guesses < 10^8)`}</div>
+                          <div>{`- 3# safely unguessable: moderate protection from offline slow-hash scenario. (guesses < 10^10)`}</div>
+                          <div>{`- 4# very unguessable: strong protection from offline slow-hash scenario. (guesses >= 10^10)`}</div>
                         </Disclosure.Panel>
                       </div>
                     )}

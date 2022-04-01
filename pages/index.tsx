@@ -75,7 +75,7 @@ const Home: NextPage = () => {
                     >
                       Application Info
                     </Dialog.Title>
-                    <IoClose className="text-white hover:text-secondary cursor-pointer h-6 w-6" onClick={() => setIsModalVisible(false)} />
+                    <IoClose className="text-white hover:text-secondary cursor-pointer h-5 w-5 md:h-6 md:w-6" onClick={() => setIsModalVisible(false)} />
                   </div>
 
                   <div className="mt-4 mb-6">
@@ -119,14 +119,14 @@ const Home: NextPage = () => {
                           />
                         </Disclosure.Button>
                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
-                          <div>- Compare substring against ranked list of common passwords, names, words. Lists are ranked by degree of commonality.</div>
-                          <div>- Number of guesses= Rank of matched word</div>
-                          <div>- Inverse matching: Doubles number of guesses of inverted set, i.e. N(’drowssap’) = 2 * N(’password’)</div>
+                          <div>Compare substring against ranked list of common passwords, names, words. Lists are ranked by degree of commonality.</div>
+                          <div>Number of guesses= Rank of matched word</div>
+                          <div>- Inverse matching: Doubles number of guesses of inverted set, e.g. N(’drowssap’) = 2 * N(’password’)</div>
                           <div>- L33t words: find substitutions of characters with symbols and digits, calculate number of variations. Calculates guesses based on product of number of variations and number of guesses of matched set.</div>
-                          <div>
-                            <div>p4ssw0rd has 4 variations, with 2 L33t substitutions:</div>
-                            <div>p4ssw0rd, passw0rd, p4ssword, password</div>
-                            <div>Number of guesses = 4 * ( Number of guesses(’password’))</div>
+                          <div className="ml-4">
+                            <div>- p4ssw0rd has 4 variations, with 2 L33t substitutions:</div>
+                            <div>- p4ssw0rd, passw0rd, p4ssword, password</div>
+                            <div>- Number of guesses = 4 * ( Number of guesses(’password’))</div>
                           </div>
                         </Disclosure.Panel>
                       </div>
@@ -143,7 +143,15 @@ const Home: NextPage = () => {
                           />
                         </Disclosure.Button>
                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
-                          <div>- Search for common keypad patterns in precomputed graph, e.g. qwerty keyboard</div>
+                          <div>Search for common keypad patterns in precomputed graph, e.g. qwerty keyboard</div>
+                          <div className="flex items-center">
+                            <div>Number of guesses =</div>
+                            <img src="/formula.png" className="h-20" />
+                          </div>
+                          <div>L: Length of pattern</div>
+                          <div>D: Average number of neighbours per key, e.g. ‘s’ has 4 neighbours on qwerty</div>
+                          <div>T: 1 + Number of turns the sequences takes, e.g. ‘zxcde’ takes 1 turn on qwerty, T = 2</div>
+                          <div>S: Number of keys on keyboard</div>
                         </Disclosure.Panel>
                       </div>
                     )}
@@ -159,10 +167,10 @@ const Home: NextPage = () => {
                           />
                         </Disclosure.Button>
                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
-                          <div>- Identify repeated characters or strings and reduce to base form. Take total as (num guesses of base) * (num repeats) + 1</div>
-                          <div>asdfasdfasdf → asdf</div>
-                          <div>Num guesses asdf = n</div>
-                          <div>Num guesses asdfasdfasdf = 3*n + 1</div>
+                          <div>Identify repeated characters or strings and reduce to base form. Take total as (num guesses of base) * (num repeats) + 1</div>
+                          <div>- asdfasdfasdf → asdf</div>
+                          <div>- Number of guesses for asdf = n</div>
+                          <div>- Number of guesses for asdfasdfasdf = 3*n + 1</div>
                         </Disclosure.Panel>
                       </div>
                     )}
@@ -178,9 +186,9 @@ const Home: NextPage = () => {
                           />
                         </Disclosure.Button>
                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
-                          <div>- Detects sequences based on the delta or difference between character ASCII values.</div>
-                          <div>- Number of guesses is scored using the product of the absolute difference, d, the starting point, s, of the sequence and n, the length. For obvious starting points like ‘a’, ‘z’ or 1, s = 4 but for other less obvious ones, s = 10 for digits and s = 26 for alphabetical characters. </div>
-                          <div>- Num guesses = s*d*n</div>
+                          <div>Detects sequences based on the delta or difference between character ASCII values.</div>
+                          <div>Number of guesses is scored using the product of the absolute difference, d, the starting point, s, of the sequence and n, the length. For obvious starting points like ‘a’, ‘z’ or 1, s = 4 but for other less obvious ones, s = 10 for digits and s = 26 for alphabetical characters. </div>
+                          <div>- Number of guesses = s*d*n</div>
                           <div>- e.g. abcd → s*d*n = (4)(1)(4) = 16</div>
                         </Disclosure.Panel>
                       </div>
@@ -197,7 +205,7 @@ const Home: NextPage = () => {
                           />
                         </Disclosure.Button>
                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
-                          <div>- We assume guesses start at 2016 and guess progressively earlier or later dates, yielding a ballpark of 365 * |2016 - year|</div>
+                          <div>We assume guessers start at 2016 and guess progressively earlier or later dates, yielding a ballpark of 365 * |2016 - year|</div>
                         </Disclosure.Panel>
                       </div>
                     )}
@@ -213,11 +221,11 @@ const Home: NextPage = () => {
                           />
                         </Disclosure.Button>
                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
-                          <div>{`- 0# too guessable: risky password. (guesses < 10^3)`}</div>
-                          <div>{`- 1# very guessable: protection from throttled online attacks. (guesses < 10^6)`}</div>
-                          <div>{`- 2# somewhat guessable: protection from unthrottled online attacks. (guesses < 10^8)`}</div>
-                          <div>{`- 3# safely unguessable: moderate protection from offline slow-hash scenario. (guesses < 10^10)`}</div>
-                          <div>{`- 4# very unguessable: strong protection from offline slow-hash scenario. (guesses >= 10^10)`}</div>
+                          <div>{`0: Too guessable, risky password. (guesses < 10^3)`}</div>
+                          <div>{`1: Very guessable, protection from throttled online attacks. (guesses < 10^6)`}</div>
+                          <div>{`2: Somewhat guessable, protection from unthrottled online attacks. (guesses < 10^8)`}</div>
+                          <div>{`3: Safely unguessable, moderate protection from offline slow-hash scenario. (guesses < 10^10)`}</div>
+                          <div>{`4: Very unguessable, strong protection from offline slow-hash scenario. (guesses >= 10^10)`}</div>
                         </Disclosure.Panel>
                       </div>
                     )}

@@ -57,7 +57,7 @@ const Home: NextPage = () => {
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <Dialog.Overlay className="fixed inset-0" />
+                  <Dialog.Overlay className="fixed inset-0 bg-black opacity-80" />
                 </Transition.Child>
                 <span
                   className="inline-block h-screen align-middle"
@@ -227,7 +227,7 @@ const Home: NextPage = () => {
                             />
                           </Disclosure.Button>
                           <Disclosure.Panel className="px-4 pt-4 pb-0 text-sm md:text-base text-gray-200">
-                            <div>0: Too guessable, risky password (guesses: &lt; 10<sup>3</sup>)</div>
+                            <div>0: Too guessable, risky password (guesses &lt; 10<sup>3</sup>)</div>
                             <div>1: Very guessable, protection from throttled online attacks. (guesses &lt; 10<sup>6</sup>)</div>
                             <div>2: Somewhat guessable, protection from unthrottled online attacks. (guesses &lt; 10<sup>8</sup>)</div>
                             <div>3: Safely unguessable, moderate protection from offline slow-hash scenario. (guesses &lt; 10<sup>10</sup>)</div>

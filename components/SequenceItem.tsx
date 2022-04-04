@@ -18,10 +18,10 @@ const SequenceItem = (props: Props) => {
             onMouseEnter={() => setIsShowing(true)}
             onMouseLeave={() => setIsShowing(false)}
           >
-            <div className="flex items-center justify-center px-4 w-48 h-14 bg-gray-800 opacity-80 rounded-md text-sm gap-x-2">
-              <div className="font-poppins-medium text-ellipsis overflow-hidden">Pattern:
+            <div className="flex items-center justify-center px-4 w-44 h-14 bg-gray-800 opacity-80 rounded-md text-sm gap-x-2">
+              <div className="font-poppins-medium truncate">Pattern:
                 <span className="ml-2">{sequence.pattern}</span>
-                <div className="font-poppins-medium">Token:
+                <div className="font-poppins-medium truncate">Token:
                   <span className="ml-2">{sequence.token}</span>
                 </div>
               </div>
@@ -38,7 +38,7 @@ const SequenceItem = (props: Props) => {
             leaveTo="opacity-0 translate-y-1"
           >
             <Popover.Panel
-              className="z-10 bg-primary absolute w-48 flex flex-wrap text-sm px-4 mt-3 transform sm:px-0"
+              className="z-10 bg-primary absolute w-44 flex flex-wrap text-sm px-4 mt-3 transform sm:px-0"
               onMouseEnter={() => setIsShowing(true)}
               onMouseLeave={() => setIsShowing(false)}
             >

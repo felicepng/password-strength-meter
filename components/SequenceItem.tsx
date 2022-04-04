@@ -65,7 +65,7 @@ const SequenceItem = (props: Props) => {
                   </Fragment>
                 }
                 {sequence.pattern === "repeat" && sequence.base_matches.map((item: any, index: number) => (
-                  <Fragment>
+                  <Fragment key={index}>
                     <div>Base pattern: {item.pattern}</div>
                     <div>Base token: {item.token}</div>
                     <div>Repeat count: {sequence.repeat_count}</div>

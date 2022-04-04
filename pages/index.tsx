@@ -22,7 +22,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (password) {
-      const result = zxcvbn(password, [firstName, lastName, dateOfBirth]);
+      const result = zxcvbn(password, [firstName, lastName, dateOfBirth, "cs440"]);
       setZxcvbnResult(result);
       console.log(result);
     } else {
@@ -74,7 +74,7 @@ const Home: NextPage = () => {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <div className="font-poppins-regular my-10 md:my-20 bg-gray-800 inline-block w-11/12 md:w-2/3 h-2/3 py-6 px-8 overflow-hidden text-left align-middle transition-all transform rounded-lg">
+                  <div className="font-poppins-regular my-10 md:my-12 bg-gray-800 inline-block w-11/12 md:w-2/3 h-2/3 py-6 px-8 overflow-hidden text-left align-middle transition-all transform rounded-lg">
                     <div className="flex justify-between items-center">
                       <Dialog.Title
                         as="h3"
@@ -85,12 +85,20 @@ const Home: NextPage = () => {
                       <IoClose className="text-white hover:text-secondary cursor-pointer h-5 w-5 md:h-6 md:w-6" onClick={() => setIsModalVisible(false)} />
                     </div>
                     <div className="mt-4 mb-6">
-                      <p className="text-sm md:text-base text-white">
-                        Expand specific techniques to learn more about their respective calculations.
+                      <p className=" text-white">
+                        Welcome to our application! Expand specific techniques to learn more about their respective calculations.
                       </p>
                     </div>
 
-                    <div className="text-white font-poppins-semibold mb-2">PASSWORD ENTROPY</div>
+                    <div className="text-white font-poppins-regular mb-2">
+                      <div className="font-poppins-semibold mb-2">PASSWORD ENTROPY</div>
+                      <div>Password entropy is calculated using the formula:{' '}
+                        <span className="ml-1">E = log<sub>2</sub>R<sup>L</sup> = L * log<sub>2</sub>R</span>
+                      </div>
+                      <div className="mb-4">Number of guesses:{' '}
+                        <span className="ml-1">2<sup>E</sup></span>
+                      </div>
+                    </div>
                     <Disclosure>
                       {({ open }) => (
                         <div className="mb-7">
@@ -101,13 +109,7 @@ const Home: NextPage = () => {
                                 } w-5 h-5 text-secondary`}
                             />
                           </Disclosure.Button>
-                          <Disclosure.Panel className="px-4 pt-4 pb-0 text-sm md:text-base text-gray-200">
-                            <div>Password entropy is calculated using the formula:{' '}
-                              <span className="ml-1">E = log<sub>2</sub>R<sup>L</sup> = L * log<sub>2</sub>R</span>
-                            </div>
-                            <div>Number of guesses:{' '}
-                              <span className="ml-1">2<sup>E</sup></span>
-                            </div>
+                          <Disclosure.Panel className="px-4 pt-4 pb-0 text-gray-200">
                             <div>Very weak: Too guessable, risky password (guesses &lt; 2<sup>25</sup>)</div>
                             <div>Weak: Very guessable, protection from throttled online attacks (2<sup>25</sup> &lt;= guesses &lt; 2<sup>50</sup>)</div>
                             <div>Okay: Somewhat guessable, protection from unthrottled online attacks (2<sup>50</sup> &lt;= guesses &lt; 2<sup>75</sup>)</div>
@@ -118,7 +120,14 @@ const Home: NextPage = () => {
                       )}
                     </Disclosure>
 
-                    <div className="text-white font-poppins-semibold mb-2">CHARACTER MATCHING</div>
+                    <div className="text-white font-poppins-regular mb-2">
+                      <div className="font-poppins-semibold mb-2">CHARACTER MATCHING</div>
+                      <div>Assumes hacker knows the structure of the password,</div>
+                      <div className="mb-2">- e.g. password123123 → password(dictionary) + 123123(repeat), hacker knows passwords consists of 1 dictionary match and one repeat match</div>
+                      <div>breaks password down into overlapping sets and selects sequence of non-overlapping set with the minimum number of guesses.</div>
+                      <div>- password123123 → password(dictionary) + 123123(repeat), hacker knows passwords consists of 1 dictionary match and one repeat match</div>
+                      <div className="mt-2 mb-4">Minimum sequence of non-overlapping set: lenovo (dictionary match) + 1111(repeat)</div>
+                    </div>
                     <Disclosure>
                       {({ open }) => (
                         <div className="mb-3">
@@ -129,7 +138,7 @@ const Home: NextPage = () => {
                                 } w-5 h-5 text-secondary`}
                             />
                           </Disclosure.Button>
-                          <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
+                          <Disclosure.Panel className="px-4 pt-4 pb-2 text-gray-200">
                             <div>Compare substring against ranked list of common passwords, names, words. Lists are ranked by degree of commonality.</div>
                             <div>Number of guesses= Rank of matched word</div>
                             <div>- Inverse matching: Doubles number of guesses of inverted set, e.g. N(’drowssap’) = 2 * N(’password’)</div>
@@ -153,7 +162,7 @@ const Home: NextPage = () => {
                                 } w-5 h-5 text-secondary`}
                             />
                           </Disclosure.Button>
-                          <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
+                          <Disclosure.Panel className="px-4 pt-4 pb-2 text-gray-200">
                             <div>Search for common keypad patterns in precomputed graph, e.g. qwerty keyboard</div>
                             <div className="flex items-center flex-wrap">
                               <div>Number of guesses =</div>
@@ -177,7 +186,7 @@ const Home: NextPage = () => {
                                 } w-5 h-5 text-secondary`}
                             />
                           </Disclosure.Button>
-                          <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
+                          <Disclosure.Panel className="px-4 pt-4 pb-2 text-gray-200">
                             <div>Identify repeated characters or strings and reduce to base form. Take total as (num guesses of base) * (num repeats) + 1</div>
                             <div>- asdfasdfasdf → asdf</div>
                             <div>- Number of guesses for asdf = n</div>
@@ -196,7 +205,7 @@ const Home: NextPage = () => {
                                 } w-5 h-5 text-secondary`}
                             />
                           </Disclosure.Button>
-                          <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
+                          <Disclosure.Panel className="px-4 pt-4 pb-2 text-gray-200">
                             <div>Detects sequences based on the delta or difference between character ASCII values.</div>
                             <div>Number of guesses is scored using the product of the absolute difference, d, the starting point, s, of the sequence and n, the length. For obvious starting points like ‘a’, ‘z’ or 1, s = 4 but for other less obvious ones, s = 10 for digits and s = 26 for alphabetical characters. </div>
                             <div>- Number of guesses = s*d*n</div>
@@ -215,7 +224,7 @@ const Home: NextPage = () => {
                                 } w-5 h-5 text-secondary`}
                             />
                           </Disclosure.Button>
-                          <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm md:text-base text-gray-200">
+                          <Disclosure.Panel className="px-4 pt-4 pb-2 text-gray-200">
                             <div>We assume guessers start at 2016 and guess progressively earlier or later dates, yielding a ballpark of 365 * |2016 - year|</div>
                           </Disclosure.Panel>
                         </div>
@@ -231,7 +240,7 @@ const Home: NextPage = () => {
                                 } w-5 h-5 text-secondary`}
                             />
                           </Disclosure.Button>
-                          <Disclosure.Panel className="px-4 pt-4 pb-0 text-sm md:text-base text-gray-200">
+                          <Disclosure.Panel className="px-4 pt-4 pb-0 text-gray-200">
                             <div>Very weak: Too guessable, risky password (guesses &lt; 10<sup>3</sup>)</div>
                             <div>Weak: Very guessable, protection from throttled online attacks (10<sup>3</sup> &lt;= guesses &lt; 10<sup>6</sup>)</div>
                             <div>Okay: Somewhat guessable, protection from unthrottled online attacks (10<sup>6</sup> &lt;= guesses &lt; 10<sup>8</sup>)</div>
@@ -273,7 +282,7 @@ const Home: NextPage = () => {
                 </div>
                 <input
                   className="w-full focus:outline-none placeholder-gray-500 bg-primary px-5 py-3 border-2 border-secondary rounded-lg"
-                  placeholder="Date of Birth"
+                  placeholder="Date of Birth (DD/MM/YYYY)"
                   value={dateOfBirth}
                   onChange={(e) => setDateOfBirth(e.target.value)}
                 />

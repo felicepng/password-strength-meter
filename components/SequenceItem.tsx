@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import { Popover, Transition } from '@headlessui/react';
+import _ from 'lodash';
 
 interface Props {
   sequence: any
@@ -18,11 +19,11 @@ const SequenceItem = (props: Props) => {
             onMouseEnter={() => setIsShowing(true)}
             onMouseLeave={() => setIsShowing(false)}
           >
-            <div className="flex items-center justify-center px-4 w-44 h-14 bg-gray-800 opacity-80 rounded-md text-sm gap-x-2">
-              <div className="font-poppins-medium truncate">Pattern:
-                <span className="ml-2">{sequence.pattern}</span>
-                <div className="font-poppins-medium truncate">Token:
-                  <span className="ml-2">{sequence.token}</span>
+            <div className="font-poppins-semibold flex items-center justify-center px-4 w-44 h-14 bg-gray-800 opacity-80 rounded-md text-sm gap-x-2">
+              <div className="truncate">Pattern:
+                <span className="ml-2 font-poppins-regular">{_.capitalize(sequence.pattern)}</span>
+                <div className="truncate">Token:
+                  <span className="ml-2 font-poppins-regular">{sequence.token}</span>
                 </div>
               </div>
             </div>
@@ -45,12 +46,13 @@ const SequenceItem = (props: Props) => {
               <div className="px-3 py-2 rounded-md border-2 border-secondary">
                 {sequence.pattern === "dictionary" &&
                   <Fragment>
-                    Dictionary name: {sequence.dictionary_name}
+                    Dictionary name: {_.capitalize(sequence.dictionary_name)}
                     {sequence.l33t &&
                       <Fragment>
                         <div>Leet: True</div>
                         <div>Matched word: {sequence.matched_word}</div>
-                        <div>L33t characters: {sequence.sub_display}</div>
+                        <div>L33t characters:</div>
+                        <div>{sequence.sub_display}</div>
                         <div>Base guesses: {sequence.base_guesses}</div>
                       </Fragment>
                     }
@@ -66,7 +68,7 @@ const SequenceItem = (props: Props) => {
                 }
                 {sequence.pattern === "repeat" && sequence.base_matches.map((item: any, index: number) => (
                   <Fragment key={index}>
-                    <div>Base pattern: {item.pattern}</div>
+                    <div>Base pattern: {_.capitalize(item.pattern)}</div>
                     <div>Base token: {item.token}</div>
                     <div>Repeat count: {sequence.repeat_count}</div>
                     <div>Base guesses: {item.guesses}</div>
@@ -76,14 +78,14 @@ const SequenceItem = (props: Props) => {
                 }
                 {sequence.pattern === "spatial" &&
                   <Fragment>
-                    <div>Graph: {sequence.graph}</div>
+                    <div>Graph: {_.capitalize(sequence.graph)}</div>
                     <div>Turn(s): {sequence.turns}</div>
                     <div>Total guesses: {Math.round(sequence.guesses)}</div>
                   </Fragment>
                 }
                 {sequence.pattern === "sequence" &&
                   <Fragment>
-                    <div>Sequence name: {sequence.sequence_name}</div>
+                    <div>Sequence name: {_.capitalize(sequence.sequence_name)}</div>
                     <div>Ascending: {sequence.ascending ? "True" : "False"}</div>
                     <div>Total guesses: {sequence.guesses}</div>
                   </Fragment>

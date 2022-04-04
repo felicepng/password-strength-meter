@@ -39,11 +39,11 @@ const SequenceItem = (props: Props) => {
             leaveTo="opacity-0 translate-y-1"
           >
             <Popover.Panel
-              className="z-10 bg-primary absolute w-44 flex flex-wrap text-sm px-4 mt-3 transform sm:px-0"
+              className="z-10 bg-primary absolute w-44 flex flex-wrap text-sm mt-3 transform px-0 rounded-md border-2 border-secondary"
               onMouseEnter={() => setIsShowing(true)}
               onMouseLeave={() => setIsShowing(false)}
             >
-              <div className="px-3 py-2 rounded-md border-2 border-secondary">
+              <div className="px-3 py-2">
                 {sequence.pattern === "dictionary" &&
                   <Fragment>
                     Dictionary name: {_.capitalize(sequence.dictionary_name)}

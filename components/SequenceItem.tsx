@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import _ from 'lodash';
 
@@ -8,12 +8,12 @@ interface Props {
 
 const SequenceItem = (props: Props) => {
   const { sequence } = props;
-  const [isShowing, setIsShowing] = useState(false);
+  const [isShowing, setIsShowing] = useState<boolean>(false);
 
   return (
     <Popover className="relative">
       {({ open }) => (
-        <>
+        <Fragment>
           <Popover.Button
             className={`${sequence.pattern === "bruteforce" && "cursor-default"} focus:outline-none`}
             onMouseEnter={() => setIsShowing(true)}
@@ -102,10 +102,10 @@ const SequenceItem = (props: Props) => {
               </div>
             </Popover.Panel>
           </Transition>
-        </>
+        </Fragment>
       )}
     </Popover>
-  )
-}
+  );
+};
 
-export default SequenceItem
+export default SequenceItem;

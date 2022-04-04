@@ -59,7 +59,7 @@ const PasswordSummary = (props: Props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PasswordSummary
+export default PasswordSummary;

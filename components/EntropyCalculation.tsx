@@ -91,7 +91,7 @@ const EntropyCalculation = (props: Props) => {
         </span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default EntropyCalculation
+export default EntropyCalculation;

@@ -33,12 +33,12 @@ const getDescription = (score: number) => {
 const PasswordMeter = (props: Props) => {
   return (
     <div className="flex gap-x-1 items-center">
-      {[...Array(props.score + 1)].map((i, index) =>
+      {[...Array(props.score + 1)].map((_i, index) =>
         <div key={index} className={`h-1 w-9 ${getColor(props.score)}`} />
       )}
       <div className="ml-3 text-sm">{getDescription(props.score)}</div>
     </div>
-  )
-}
+  );
+};
 
-export default PasswordMeter
+export default PasswordMeter;

@@ -24,7 +24,7 @@ const Home: NextPage = () => {
     if (password) {
       const result = zxcvbn(password, [firstName, lastName, dateOfBirth, "cs440"]);
       setZxcvbnResult(result);
-      console.log(result);
+      // console.log(result);
     } else {
       setZxcvbnResult(null);
     }

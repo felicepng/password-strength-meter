@@ -51,13 +51,13 @@ const calculateEntropy = (password: string) => {
 const calculateScore = (password: string) => {
   const guesses = calculateGuesses(password);
 
-  if (guesses < Math.pow(10, 3)) {
+  if (guesses < Math.pow(2, 25)) {
     return 0;
-  } else if (guesses < Math.pow(10, 6)) {
+  } else if (guesses < Math.pow(2, 50)) {
     return 1;
-  } else if (guesses < Math.pow(10, 8)) {
+  } else if (guesses < Math.pow(2, 75)) {
     return 2;
-  } else if (guesses < Math.pow(10, 10)) {
+  } else if (guesses < Math.pow(2, 100)) {
     return 3;
   }
   return 4;

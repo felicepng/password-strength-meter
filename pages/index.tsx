@@ -265,7 +265,7 @@ const Home: NextPage = () => {
           <div className="text-base md:text-xl text-secondary mt-1">CS440 G2T8</div>
           <div className="mt-8 md:mt-14 grid lg:grid-cols-2 gap-x-20">
             <div className="flex flex-col gap-y-3 md:gap-y-6 lg:col-span-1 space-y-6 w-full">
-              <div className="flex flex-col gap-y-4 md:gap-y-6">
+              <div className="text-sm md:text-base flex flex-col gap-y-4 md:gap-y-6">
                 <div className="flex justify-between w-full gap-x-4 md:gap-x-6">
                   <input
                     className="w-full focus:outline-none placeholder-gray-500 bg-primary px-5 py-3 border-2 border-secondary rounded-lg"

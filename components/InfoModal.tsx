@@ -45,7 +45,7 @@ const InfoModal = (props: Props) => {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="font-poppins-regular my-10 md:my-12 bg-gray-800 inline-block w-11/12 md:w-2/3 h-2/3 py-6 px-8 overflow-hidden text-left align-middle transition-all transform rounded-lg">
+            <div className="font-poppins-regular my-10 md:my-12 bg-gray-800 inline-block w-11/12 md:w-3/4 h-2/3 py-6 px-8 overflow-hidden text-left align-middle transition-all transform rounded-lg">
               <div className="flex justify-between items-center">
                 <Dialog.Title
                   as="h3"
